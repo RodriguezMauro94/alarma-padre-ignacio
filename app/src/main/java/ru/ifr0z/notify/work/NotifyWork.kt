@@ -37,7 +37,6 @@ import java.io.IOException
 import java.util.Date
 
 const val URL_PADRE_IGNACIO: String = "https://natividad.org.ar/turnos_enfermos.php"
-//const val URL_PADRE_IGNACIO: String = "https://phet-dev.colorado.edu/html/build-an-atom/0.0.0-3/simple-text-only-test-page.html"
 
 class NotifyWork(context: Context, params: WorkerParameters) : Worker(context, params) {
 
@@ -46,8 +45,7 @@ class NotifyWork(context: Context, params: WorkerParameters) : Worker(context, p
 
         while (true) {
             checkWebSite(client)
-            //Thread.sleep(300000) // 5 minutes
-            Thread.sleep(5000) // 5 seconds
+            Thread.sleep(300000) // 5 minutes
         }
 
         return success()

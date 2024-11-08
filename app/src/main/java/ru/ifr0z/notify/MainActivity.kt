@@ -1,7 +1,9 @@
 package ru.ifr0z.notify
 
 import android.Manifest.permission.POST_NOTIFICATIONS
+import android.content.Intent
 import android.content.pm.PackageManager.PERMISSION_GRANTED
+import android.os.Build
 import android.os.Build.VERSION.SDK_INT
 import android.os.Build.VERSION_CODES.TIRAMISU
 import android.os.Bundle
@@ -9,12 +11,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.checkSelfPermission
-import androidx.work.ExistingWorkPolicy.REPLACE
-import androidx.work.OneTimeWorkRequest
-import androidx.work.WorkManager
 import ru.ifr0z.notify.databinding.MainActivityBinding
-import ru.ifr0z.notify.work.NotifyWork
-import ru.ifr0z.notify.work.NotifyWork.Companion.NOTIFICATION_WORK
+import ru.ifr0z.notify.work.MonitoringService
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         checkPermission()
 
         if (isPermission) {
-            startWorker()
+            startForegroundService()
         } else {
             if (SDK_INT >= TIRAMISU) {
                 checkNotificationPermission.launch(POST_NOTIFICATIONS)
@@ -69,10 +67,12 @@ class MainActivity : AppCompatActivity() {
         binding.collapsingToolbarLayout.title = titleNotification
     }
 
-    private fun startWorker() {
-        val notificationWork = OneTimeWorkRequest.Builder(NotifyWork::class.java).build()
-
-        val instanceWorkManager = WorkManager.getInstance(this)
-        instanceWorkManager.beginUniqueWork(NOTIFICATION_WORK, REPLACE, notificationWork).enqueue()
+    private fun startForegroundService() {
+        val intent = Intent(this, MonitoringService::class.java)
+        if (SDK_INT >= Build.VERSION_CODES.O) {
+            startForegroundService(intent)
+        } else {
+            startService(intent)
+        }
     }
 }
