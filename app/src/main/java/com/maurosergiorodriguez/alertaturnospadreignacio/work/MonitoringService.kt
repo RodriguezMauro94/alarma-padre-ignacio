@@ -1,4 +1,4 @@
-package ru.ifr0z.notify.work
+package com.maurosergiorodriguez.alertaturnospadreignacio.work
 
 import android.app.Service
 import android.content.Intent
@@ -6,7 +6,7 @@ import android.os.IBinder
 import androidx.work.ExistingWorkPolicy
 import androidx.work.OneTimeWorkRequest
 import androidx.work.WorkManager
-import ru.ifr0z.notify.work.NotifyWork.Companion.NOTIFICATION_WORK
+import com.maurosergiorodriguez.alertaturnospadreignacio.work.NotifyWork.Companion.NOTIFICATION_WORK
 
 class MonitoringService : Service() {
 

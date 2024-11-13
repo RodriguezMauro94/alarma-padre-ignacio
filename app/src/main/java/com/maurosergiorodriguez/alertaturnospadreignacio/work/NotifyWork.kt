@@ -1,4 +1,4 @@
-package ru.ifr0z.notify.work
+package com.maurosergiorodriguez.alertaturnospadreignacio.work
 
 import android.annotation.SuppressLint
 import android.app.NotificationChannel
@@ -26,13 +26,13 @@ import androidx.core.app.NotificationCompat.PRIORITY_MAX
 import androidx.work.ListenableWorker.Result.success
 import androidx.work.Worker
 import androidx.work.WorkerParameters
+import com.maurosergiorodriguez.alertaturnospadreignacio.R
+import com.maurosergiorodriguez.alertaturnospadreignacio.extension.vectorToBitmap
 import okhttp3.Call
 import okhttp3.Callback
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.Response
-import ru.ifr0z.notify.R
-import ru.ifr0z.notify.extension.vectorToBitmap
 import java.io.IOException
 import java.util.Date
 

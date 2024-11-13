@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'ru.ifr0z.notify'
+    namespace 'com.maurosergiorodriguez.alertaturnospadreignacio'
     compileSdk 33
 
     defaultConfig {
-        applicationId "ru.ifr0z.notify"
+        applicationId "com.maurosergiorodriguez.alertaturnospadreignacio"
         minSdk 21
         targetSdk 33
         versionCode 1

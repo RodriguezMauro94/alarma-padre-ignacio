@@ -1,4 +1,4 @@
-package ru.ifr0z.notify
+package com.maurosergiorodriguez.alertaturnospadreignacio
 
 import android.Manifest.permission.POST_NOTIFICATIONS
 import android.content.Intent
@@ -11,8 +11,8 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat.checkSelfPermission
-import ru.ifr0z.notify.databinding.MainActivityBinding
-import ru.ifr0z.notify.work.MonitoringService
+import com.maurosergiorodriguez.alertaturnospadreignacio.databinding.MainActivityBinding
+import com.maurosergiorodriguez.alertaturnospadreignacio.work.MonitoringService
 
 class MainActivity : AppCompatActivity() {
 
